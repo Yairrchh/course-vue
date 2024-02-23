@@ -1,19 +1,20 @@
 <script setup>
-import MenuDest from "./components/MenuDest.vue"
-import { ref } from "vue";
-import ModalDest from "./components/ModalDest.vue";
+import { ref, onMounted } from 'vue';
 
-const show = ref(false)
+
+const greeting = 'Hello vue.js'
+const el = ref('Hello world')
+
+
+  onMounted(() => {
+    console.log('onMounted: el componente ah sido montado', el.value )
+  })
 
 </script>
 
 <template>
-  <button @click="show = !show">Menu</button>
-  <Transition name="fade">
-    <MenuDest v-show="show"/>
-  </Transition>
-  <div>
-    <ModalDest/>
+  <div ref="el">
+      {{ greeting }}
   </div>
 </template>
 
