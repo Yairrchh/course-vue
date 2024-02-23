@@ -1,21 +1,24 @@
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onUpdated } from 'vue';
 
-
-const greeting = 'Hello vue.js'
 const el = ref('Hello world')
 
+const updateMessage = () => {
+  el.value = 'Update message'
+}
 
-  onMounted(() => {
-    console.log('onMounted: el componente ah sido montado', el.value )
+
+  onUpdated(() => {
+    console.log('onUpdate: the components has been update', el.value )
   })
 
 </script>
 
 <template>
-  <div ref="el">
-      {{ greeting }}
+  <div >
+      {{ el }}
   </div>
+  <button @click="updateMessage">Update Message</button>
 </template>
 
 <style scoped>
