@@ -1,3 +1,11 @@
+<script setup>
+import { onUnmounted } from 'vue';
+
+    onUnmounted(() => {
+    console.log('onUnmounted: the components has been onUnmounted' )
+    })
+</script>
+
 <template>
     <ul>
         <li>opt1</li>

@@ -1,24 +1,22 @@
 <script setup>
-import { ref, onUpdated } from 'vue';
+import { ref } from 'vue';
+import MenuDest from './components/MenuDest.vue'
 
-const el = ref('Hello world')
+let onUnmountedComponents = ref(true);
 
-const updateMessage = () => {
-  el.value = 'Update message'
+const onUnmountedMessage = () => {
+  console.log('unUnmounted component')
+  onUnmountedComponents.value = !onUnmountedComponents.value;
+
 }
-
-
-  onUpdated(() => {
-    console.log('onUpdate: the components has been update', el.value )
-  })
 
 </script>
 
 <template>
+  <button @click="onUnmountedMessage">unUnmounted</button>
   <div >
-      {{ el }}
+    <MenuDest v-if="onUnmountedComponents"/>
   </div>
-  <button @click="updateMessage">Update Message</button>
 </template>
 
 <style scoped>
