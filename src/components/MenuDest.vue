@@ -1,8 +1,8 @@
 <script setup>
-import { onUnmounted } from 'vue';
+import { onBeforeMount,  } from 'vue';
 
-    onUnmounted(() => {
-    console.log('onUnmounted: the components has been onUnmounted' )
+    onBeforeMount(() => {
+    console.log('onBeforeMount: the components has been onBeforeMount' )
     })
 </script>
 

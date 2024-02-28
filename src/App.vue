@@ -2,18 +2,17 @@
 import { ref } from 'vue';
 import MenuDest from './components/MenuDest.vue'
 
-let onUnmountedComponents = ref(true);
+let onUnmountedComponents = ref(false);
 
 const onUnmountedMessage = () => {
-  console.log('unUnmounted component')
   onUnmountedComponents.value = !onUnmountedComponents.value;
-
+  console.log('Click onBeforeMount')
 }
 
 </script>
 
 <template>
-  <button @click="onUnmountedMessage">unUnmounted</button>
+  <button @click="onUnmountedMessage">OnBeforeMount</button>
   <div >
     <MenuDest v-if="onUnmountedComponents"/>
   </div>
